@@ -2,7 +2,6 @@
 IProductoRepository repositorio = new ProductoXmlRepository("productos.xml");
 GestorProductos gestor = new GestorProductos (repositorio);
 
-// ── Bucle principal ───────────────────────────────────────────────────────────
 bool ejecutando = true;
 
 while (ejecutando)
