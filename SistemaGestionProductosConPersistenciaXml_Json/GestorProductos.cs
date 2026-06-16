@@ -65,13 +65,13 @@
         }
     }
 
-    // 5. Listar productos
+    // Listar productos
     public List<Producto> ListarProductos()
     {
         return _repositorio.ObtenerTodos();
     }
 
-    // 6. Filtrar productos por criterio 
+    // Filtrar productos por criterio 
     public List<Producto> FiltrarProductos(decimal valor, string criterio)
     {
         List<Producto> todos = _repositorio.ObtenerTodos();
