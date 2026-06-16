@@ -20,7 +20,7 @@ while (estaEjecutando)
         case "7": Ordenar(); break;
         case "8": Total(); break;
         case "9":
-            Console.WriteLine("\n Saliendo del sistema. ¡Hasta pronto!");
+            Console.WriteLine("\n Saliendo del sistema......");
             estaEjecutando = false;
             break;
         default:
