@@ -75,6 +75,14 @@ void Actualizar()
 {
     Console.WriteLine("\n--- ACTUALIZAR PRODUCTO ---");
     string codigo = LeerTexto("Ingrese el código del producto a actualizar: ");
+
+    var busquedaResultado = gestor.BuscarProducto(codigo);
+
+    if(busquedaResultado.Contains("Error"))
+    {
+        Console.WriteLine($"\n No se puede actualizar: El producto con código '{codigo} no existe.");
+    }
+
     string nuevoNombre = LeerTexto("Ingrese el nuevo nombre: ");
     decimal nuevoPrecio = LeerDecimal("Ingrese el nuevo precio: ");
     Console.WriteLine(gestor.ActualizarProducto(codigo, nuevoNombre, nuevoPrecio));
