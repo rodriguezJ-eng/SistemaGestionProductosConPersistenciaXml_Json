@@ -59,6 +59,13 @@ void Agregar()
 {
     Console.WriteLine("\n--- AGREGAR PRODUCTO ---");
     string codigo = LeerTexto("Ingrese el código del producto: ");
+
+    if(!EsCodigoValido(codigo))
+    {
+        Console.WriteLine("\nEl código no puede ser un número negativo");
+        return;
+    }
+
     string nombre = LeerTexto("Ingrese el nombre del producto: ");
     decimal precio = LeerDecimal("Ingrese el precio del producto: ");
     Console.WriteLine(gestor.AgregarProducto(codigo, nombre, precio));
@@ -187,4 +194,11 @@ static decimal LeerDecimal(string mensaje)
             return valor;
         Console.WriteLine(" Valor inválido. Ingrese un número válido.");
     }
+}
+
+static bool EsCodigoValido(string codigo)
+{
+    if (string.IsNullOrWhiteSpace(codigo)) return false;
+    if (int.TryParse(codigo, out int numero) && numero < 0) return false;
+    return true;
 }
