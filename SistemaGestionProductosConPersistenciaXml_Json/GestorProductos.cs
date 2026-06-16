@@ -7,7 +7,7 @@
         _repositorio = repositorio;
     }
 
-    // 1. Agregar producto
+    // Agregar producto
     public string AgregarProducto(string codigo, string nombre, decimal precio)
     {
         try
@@ -22,13 +22,13 @@
         }
     }
 
-    // 2. Buscar producto por código
+    // Buscar producto por código
     public string BuscarProducto(string codigo)
     {
         try
         {
             Producto p = _repositorio.ObtenerPorCodigo(codigo);
-            return $" Encontrado → {p}";
+            return $" Encontrado -> {p}";
         }
         catch (Exception ex)
         {
@@ -36,7 +36,7 @@
         }
     }
 
-    // 3. Actualizar producto
+    // Actualizar producto
     public string ActualizarProducto(string codigo, string nuevoNombre, decimal nuevoPrecio)
     {
         try
@@ -51,7 +51,7 @@
         }
     }
 
-    // 4. Eliminar producto
+    // Eliminar producto
     public string EliminarProducto(string codigo)
     {
         try
@@ -71,20 +71,20 @@
         return _repositorio.ObtenerTodos();
     }
 
-    // 6. Filtrar productos por criterio usando LINQ
+    // 6. Filtrar productos por criterio 
     public List<Producto> FiltrarProductos(decimal valor, string criterio)
     {
         List<Producto> todos = _repositorio.ObtenerTodos();
         return criterio switch
         {
-            ">" => todos.Where(p => p.Precio > valor).ToList(),
-            "<" => todos.Where(p => p.Precio < valor).ToList(),
-            "=" => todos.Where(p => p.Precio == valor).ToList(),
+            "1" => todos.Where(p => p.Precio > valor).ToList(),
+            "2" => todos.Where(p => p.Precio < valor).ToList(),
+            "3" => todos.Where(p => p.Precio == valor).ToList(),
             _ => new List<Producto>()
         };
     }
 
-    // 7. Ordenar productos de menor a mayor precio con LINQ
+    // Ordenar productos de menor a mayor precio 
     public List<Producto> OrdenarProductos()
     {
         return _repositorio.ObtenerTodos()
@@ -92,7 +92,7 @@
             .ToList();
     }
 
-    // 8. Total de productos
+    // Total de productos
     public int TotalProductos()
     {
         return _repositorio.ObtenerTodos().Count;
