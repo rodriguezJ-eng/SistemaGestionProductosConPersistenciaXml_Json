@@ -38,6 +38,10 @@ while (estaEjecutando)
 
 static void MostrarMenu()
 {
+    Console.WriteLine("INTEGRANTES");
+    Console.WriteLine("Jonathan Alejandro Rodríguez López");
+    Console.WriteLine("Rashel de los Ángeles Sánchez González");
+    Console.WriteLine("Engel Josué Aburto Zeledón\n");
     Console.WriteLine("╔══════════════════════════════════╗");
     Console.WriteLine("║    === GESTOR DE PRODUCTOS ===   ║");
     Console.WriteLine("╠══════════════════════════════════╣");
