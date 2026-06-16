@@ -121,8 +121,8 @@ void Filtrar()
     Console.WriteLine("\n--- FILTRAR PRODUCTOS ---");
 
     Console.WriteLine("Seleccione el criterio:");
-    Console.WriteLine(" 1. Menor que (<)");
-    Console.WriteLine(" 2. Mayor que (>)");
+    Console.WriteLine(" 1. Mayor que (>)");
+    Console.WriteLine(" 2. Menor que (<)");
     Console.WriteLine(" 3. Igual que (=)");
     Console.Write("Elija una opción (1-3): ");
     string criterio = Console.ReadLine()?.Trim() ?? "";
@@ -139,8 +139,8 @@ void Filtrar()
 
     string simboloCriterio = criterio switch 
     { 
-        "1" => "<",
-        "2" => ">", 
+        "1" => ">",
+        "2" => "<", 
         "3" => "=", 
         _ => "" 
     };
