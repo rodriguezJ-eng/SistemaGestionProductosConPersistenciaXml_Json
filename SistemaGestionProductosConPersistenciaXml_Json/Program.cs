@@ -103,24 +103,38 @@ void Listar()
 void Filtrar()
 {
     Console.WriteLine("\n--- FILTRAR PRODUCTOS ---");
-    Console.WriteLine("Criterios disponibles:  >   <   =");
-    Console.Write("Ingrese el criterio: ");
+
+    Console.WriteLine("Seleccione el criterio:");
+    Console.WriteLine(" 1. Menor que (<)");
+    Console.WriteLine(" 2. Mayor que (>)");
+    Console.WriteLine(" 3. Igual que (=)");
+    Console.Write("Elija una opción (1-3): ");
     string criterio = Console.ReadLine()?.Trim() ?? "";
 
-    if (criterio != ">" && criterio != "<" && criterio != "=")
+    if (criterio != "1" && criterio != "2" && criterio != "3")
     {
-        Console.WriteLine(" Criterio inválido. Use >, < o =");
+        Console.WriteLine(" Opción inválida. Debe elegir 1, 2 o 3.");
         return;
     }
 
     decimal valor = LeerDecimal("Ingrese el valor de referencia: ");
+
     var resultados = gestor.FiltrarProductos(valor, criterio);
 
-    Console.WriteLine($"\n Productos con precio {criterio} ${valor:F2}:");
+    string simboloCriterio = criterio switch 
+    { 
+        "1" => "<",
+        "2" => ">", 
+        "3" => "=", 
+        _ => "" 
+    };
+
+    Console.WriteLine($"\n Productos con precio {simboloCriterio} ${valor:F2}:");
+
     if (resultados.Count == 0)
         Console.WriteLine(" No se encontraron productos.");
     else
-        resultados.ForEach(p => Console.WriteLine($"  -> {p}"));
+        resultados.ForEach(p => Console.WriteLine($" {p}"));
 }
 
 void Ordenar()
