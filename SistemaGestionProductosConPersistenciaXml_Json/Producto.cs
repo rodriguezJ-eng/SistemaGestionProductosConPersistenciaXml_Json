@@ -16,7 +16,7 @@ public class Producto
         Precio = precio;
     }
 
-    [XmlElement("Codigo")]
+    
     public string Codigo
     {
         get => _codigo;
@@ -24,11 +24,17 @@ public class Producto
         {
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException("El código no puede estar vacío.");
+            
+            if(int.TryParse(value, out int numero) && numero < 0)
+            {
+                throw new ArgumentException("El código no puede ser un número negativo.");
+            }
+
             _codigo = value.Trim();
         }
     }
 
-    [XmlElement("Nombre")]
+   
     public string Nombre
     {
         get => _nombre;
@@ -40,7 +46,7 @@ public class Producto
         }
     }
 
-    [XmlElement("Precio")]
+    
     public decimal Precio
     {
         get => _precio;
