@@ -22,13 +22,11 @@ public class Producto
         get => _codigo;
         set
         {
+            if (int.TryParse(value, out int numero) && numero < 0)
+                throw new ArgumentException("El código no puede ser un número negativo.");
+
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException("El código no puede estar vacío.");
-            
-            if(int.TryParse(value, out int numero) && numero < 0)
-            {
-                throw new ArgumentException("El código no puede ser un número negativo.");
-            }
 
             _codigo = value.Trim();
         }

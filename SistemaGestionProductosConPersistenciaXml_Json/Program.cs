@@ -81,6 +81,7 @@ void Actualizar()
     if(busquedaResultado.Contains("Error"))
     {
         Console.WriteLine($"\n No se puede actualizar: El producto con código '{codigo} no existe.");
+        return;
     }
 
     string nuevoNombre = LeerTexto("Ingrese el nuevo nombre: ");
