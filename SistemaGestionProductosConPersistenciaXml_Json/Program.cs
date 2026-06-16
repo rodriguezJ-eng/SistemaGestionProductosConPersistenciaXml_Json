@@ -2,9 +2,9 @@
 IProductoRepository repositorio = new ProductoXmlRepository("productos.xml");
 GestorProductos gestor = new GestorProductos (repositorio);
 
-bool ejecutando = true;
+bool estaEjecutando = true;
 
-while (ejecutando)
+while (estaEjecutando)
 {
     MostrarMenu();
     string opcion = Console.ReadLine()?.Trim() ?? "";
@@ -21,14 +21,14 @@ while (ejecutando)
         case "8": Total(); break;
         case "9":
             Console.WriteLine("\n Saliendo del sistema. ¡Hasta pronto!");
-            ejecutando = false;
+            estaEjecutando = false;
             break;
         default:
             Console.WriteLine("\n Opción inválida. Intente de nuevo.");
             break;
     }
 
-    if (ejecutando)
+    if (estaEjecutando)
     {
         Console.WriteLine("\nPresione cualquier tecla para continuar...");
         Console.ReadKey();
